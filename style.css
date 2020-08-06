@@ -1,0 +1,240 @@
+/* setting */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Carlito';
+    src: url('../../css/font/Carlito-Regular.ttf');
+}
+@font-face {
+    font-family: 'CarlitoBold';
+    src: url('../../css/font/Carlito-Bold.ttf');
+}
+
+:root {
+    --colorGrey: rgb(196, 196, 196);
+    --colorGreyDark: rgb(66, 63, 63); 
+}
+
+body {
+    font-family: 'Carlito';
+}
+
+ul {
+    list-style: none;
+    font-family: 'CarlitoBold';
+}
+
+img {
+    width: 100%;
+}
+
+button {
+    margin-top: 2rem;
+    padding: .8em 1.5em;
+    outline: none;
+    border: none;
+    color: white;
+    background-color: var(--colorGreyDark);
+}
+
+/* nav */
+nav {
+    width: 100%;
+    padding: 2em;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* header GRID*/
+.container-grid {
+    display: grid;
+    grid-template-columns: 90px 4fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "social jumbo box1"
+                        "social jumbo box2";
+    gap: 1rem;
+    margin: 1rem;
+}
+
+/* social */
+.social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    grid-area: social;
+    font-size: 1.6rem;
+    color: white;
+    background-color: black;
+}
+
+.social i {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid white;
+}
+.social i:last-child {
+    border: none;
+}
+
+.jumbo {
+    position: relative;
+    grid-area: jumbo;
+    color: white;
+    overflow: hidden;
+    }
+
+.bck_img {
+    position: absolute;
+    height: 640px;
+    width: 100%;
+    background-image: url('./img/sfondo.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    background-size: cover;
+    background-position: 10% center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    filter: brightness(0.4);   
+    transition: width 2s; 
+}
+.jumbo:hover .bck_img{
+    width: 120%;
+}
+
+.text {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    padding: 3em;
+    transform: translate(-50%, -50%);
+}
+
+.text h1 {
+    margin-bottom: 1rem;
+    font-size: 3em;
+}
+
+/* box */
+.box_study {
+    grid-area: box1;
+}
+
+.box_software {
+    grid-area: box2;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background-color: var(--colorGrey); 
+}
+
+.box p, .box strong {
+    text-align: center;
+}
+
+.box i {
+    margin: 1rem 0;
+    font-size: 3rem;
+}
+
+.container_box {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 1rem;
+}
+
+.container_box .box strong {
+    margin-bottom: 1rem;
+}
+
+/* main */
+main {
+    margin: 1rem;
+}
+
+.info {
+    padding: 3rem 1rem;
+    color: white;
+    background-color: var(--colorGreyDark);
+}
+
+.info h2 {
+    margin-bottom: 5rem;
+    font-size: 15rem;
+}
+
+.info span {
+    margin-right: 1rem;
+    border-bottom: 15px solid white;
+}
+
+/* gallery */
+.img {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 1rem;
+}
+
+.img img {
+    margin-top: 1rem;     
+}
+
+/* footer */
+footer {
+    margin: 1rem;
+    padding: 1rem;
+    text-align: center;
+    border-top: 1.5px solid var(--colorGreyDark);
+}
+
+/* media query */
+@media screen and (max-width: 756px) {
+    .container-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "social social"
+                            "jumbo jumbo"
+                            "box1 box2";
+    }
+    .social {
+        flex-direction: row;
+        height: 80px;
+        margin-left: 0;
+    }
+    .social i {
+        border: none;
+    }
+    .text {
+        padding: 2em;
+    }
+    .text h1 {
+        font-size: 2em;
+    }
+    .container_box {
+        grid: 1fr 1fr/ 1fr 1fr;
+    }
+    .box {
+        width: 100%;
+        margin: 0;
+        padding: .8rem;
+    }
+    .info h2 {
+        font-size: 8rem;
+        margin-bottom: 3rem;
+    }
+}
+  
